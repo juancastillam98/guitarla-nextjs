@@ -1,17 +1,13 @@
 //import {useState} from "react";
 import styles from "@/styles/guitarras.module.css";
 import Image from "next/image";
-//import InfoGuitarra from "./guitarra";
+
 import {GuitarraInfo} from "../../../components/GuitarraInfo";
 export default async function Producto({params}) {
-    //const [cantidad, setCantidad] = useState(0)
     const {url}=params;
     const guitarra = await getGuitarra(url)
-    //const {descripcion, nombre,precio, imagen} = guitarra[0].attributes;
     return (
-
             <GuitarraInfo guitarra={guitarra}/>
-
         )
 
 }

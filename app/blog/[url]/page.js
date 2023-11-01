@@ -1,7 +1,6 @@
-import styles from '../../../styles/blog.module.css'
-import {formatearFecha} from "../../../utils/helpers"
-import Image from "next/image";
 
+import {BlogInfo} from "../../../components/BlogInfo";
+import {console} from "next/dist/compiled/@edge-runtime/primitives";
 export const metadata ={
     title :" Blog",
     description :"Blog de música, venta de guitarras y consejos"
@@ -9,16 +8,12 @@ export const metadata ={
 export default async function Post({params}){
     const {url}=params;
     const post = await getPost(url)
-    const {titulo, contenido, publishedAt, imagen}=post[0].attributes
+    console.log("desde Post params")
+    console.log(post)
+
+    //const {titulo, contenido, publishedAt, imagen}=post[0].attributes
     return(
-        <article className={`${styles.post} ${styles["mt-3"]}`}>
-            <Image src={imagen.data.attributes.url} width={1000} height={400} alt={`imagen blog ${titulo}`}/>
-            <div className={styles.contenido}>
-                <h3>{titulo}</h3>
-                <p className={styles.fecha}>{formatearFecha(publishedAt)}</p>
-                <p className={styles.texto}>{contenido}</p>
-            </div>
-        </article>
+        <BlogInfo post={post} />
     )
 }
 

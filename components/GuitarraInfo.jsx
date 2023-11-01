@@ -27,8 +27,6 @@ export const GuitarraInfo = ({guitarra}) =>{
         }
     agregarCarrito(guitarraSeleccionada);
     }
-    console.log("desde guitarraINFO")
-    console.log("hasta aquí")
     return (
         <div className={styles.guitarra}>
             <Image src={imagen.data.attributes.url} width={600} height={400} alt={`Imagen de la guitarra ${nombre}`} />
