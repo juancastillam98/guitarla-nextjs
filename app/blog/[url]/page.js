@@ -3,7 +3,8 @@ import {formatearFecha} from "../../../utils/helpers"
 import Image from "next/image";
 
 export const metadata ={
-    tit
+    title :" Blog",
+    description :"Blog de música, venta de guitarras y consejos"
 }
 export default async function Post({params}){
     const {url}=params;
