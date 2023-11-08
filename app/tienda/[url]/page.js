@@ -22,7 +22,7 @@ export async function generateStaticParams(){
 }
 
 async function getGuitarra(url) {
-    const respuesta = await fetch(`http://localhost:1337/api/guitarras?filters[url]=${url}&populate=imagen`)
+    const respuesta = await fetch(`${process.env.API_URL}/guitarras?filters[url]=${url}&populate=imagen`)
     const {data} = await  respuesta.json();
     return data;
 }

@@ -23,9 +23,9 @@ export default function RootLayout({ children}) {
       <html>
       <ContextProvider>
           <body className={outfit.className}>
-          <Header/>
-          {children}
-          <Footer/>
+              <Header/>
+              {children}
+              <Footer/>
           </body>
       </ContextProvider>
       </html>

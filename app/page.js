@@ -44,9 +44,9 @@ export default async function Home() {
   )
 }
 export async function getGuitarrasPost(){
-    const urlGuitarras ="http://localhost:1337/api/guitarras?populate=imagen";
-    const urlPost ="http://localhost:1337/api/posts?populate=imagen";
-    const urlCurso ="http://localhost:1337/api/curso?populate=imagen";
+    const urlGuitarras =`${process.env.API_URL}/guitarras?populate=imagen`;
+    const urlPost =`${process.env.API_URL}/posts?populate=imagen`;
+    const urlCurso =`${process.env.API_URL}/curso?populate=imagen`;
     const [resGuitarras, resPost, resCurso] = await Promise.all([
         fetch(urlGuitarras),
         fetch(urlPost),

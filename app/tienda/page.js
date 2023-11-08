@@ -23,7 +23,7 @@ export default async function Tienda(){//lo estoy extrayendo en getStaticProps
 }
 
 async function getGuitarras() {
-    const respuesta = await fetch("http://localhost:1337/api/guitarras?populate=imagen");
+    const respuesta = await fetch(`${process.env.API_URL}/guitarras?populate=imagen`);
     const {data} = await respuesta.json();
     if (!respuesta.ok) {
         throw new Error('Failed to fetch data')

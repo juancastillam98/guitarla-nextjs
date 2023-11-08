@@ -24,7 +24,7 @@ export default async function Blog(){
 }
 
 export async function getPosts() {
-    const respuesta = await fetch("http://localhost:1337/api/posts?populate=imagen");
+    const respuesta = await fetch(`${process.env.API_URL}/posts?populate=imagen`);
     const {data} = await respuesta.json();
     return data;
 }

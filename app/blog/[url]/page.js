@@ -28,7 +28,7 @@ export async function generateStaticParams() {
 }
 
 export async function getPost(url){
-    const resultado = await fetch(`http://localhost:1337/api/posts?filters[url]=${url}&populate=imagen`);
+    const resultado = await fetch(`${process.env.API_URL}/posts?filters[url]=${url}&populate=imagen`);
     const {data} = await resultado.json();
     return data;
 }
