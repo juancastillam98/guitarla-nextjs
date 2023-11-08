@@ -13,7 +13,7 @@ export default async function Producto({params}) {
 }
 
 export async function generateStaticParams(){
-    const respuesta= await fetch('http://localhost:1337/api/guitarras');
+    const respuesta= await fetch(`${process.env.API_URL}/guitarras`)
     const {data} = await respuesta.json();
 
     return data.map((guitarra) => ({

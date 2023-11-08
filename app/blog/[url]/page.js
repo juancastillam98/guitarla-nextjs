@@ -20,7 +20,7 @@ export default async function Post({params}){
 
 
 export async function generateStaticParams() {
-    const {data} = await fetch('http://localhost:1337/api/posts').then((res) => res.json())
+    const {data} = await fetch(`${process.env.API_URL}/posts`).then((res) => res.json())
     //console.log(data)
     return data.map((post) => ({
         url: post.attributes.url,
