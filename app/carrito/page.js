@@ -1,30 +1,37 @@
-"use client";
-import { useEffect, useState } from "react";
+"use client"
+import {useEffect, useState} from "react";
 import Image from "next/image";
-import { Context } from "../context";
+import {Context} from "../context"
 import { useContext } from "react";
-import styles from "@/styles/carrito.module.css";
-
+import styles from '@/styles/carrito.module.css'
+/*export const metadata={
+    title: 'Carrito',
+    description: 'Compra'
+}*/
 export default function Carrito() {
     const context = useContext(Context);
-
-    if (!context) {
-        // Manejar el caso cuando el contexto es nulo (por ejemplo, aún no está listo)
-        return <div>Cargando...</div>;
-    }
 
     const { carrito, actualizarCantidad, eliminarProducto } = context;
     const [total, setTotal] = useState(0);
 
     //vamos a calcular el total mediante un acumulador (reduce)
-    useEffect(() => {
-        const calculoTotal = carrito.reduce(
-            (acumulado, elementoIterado) =>
-                acumulado + elementoIterado.cantidad * elementoIterado.precio,
-            0
-        );
-        setTotal(calculoTotal);
-    }, [carrito]);
+    useEffect(() =>{
+        const calculoTotal = carrito.reduce((acumulado, elementoIterado)=>acumulado + (elementoIterado.cantidad * elementoIterado.precio), 0)//0 es el valor inicial
+        setTotal(calculoTotal)
+        /* esto de arriba es lo mismo que cuando en un bucle convencional -->
+       totalCarrito=0;
+        for (let i = 0; i < carrito.length; i){
+            totalCarrito += carrito[i].precio * carrito[i].cantidad;
+        }
+        setTotal(totalCarrito)
+        */
+    }, [carrito])//lo vamos a meter en un useEffect para que compruebe el total cada vez que ocurra algún cambio
+
+
+    if (!context) {
+        // Manejar el caso cuando el contexto es nulo (por ejemplo, aún no está listo)
+        return <div>Cargando...</div>;
+    }
 
     return (
         <>
