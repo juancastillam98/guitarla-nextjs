@@ -10,10 +10,7 @@ import styles from '@/styles/carrito.module.css'
 }*/
 export default function Carrito() {
     const context = useContext(Context);
-    if (!context) {
-        // Manejar el caso cuando el contexto es nulo (por ejemplo, aún no está listo)
-        return <div>Cargando...</div>;
-    }
+
     const { carrito, actualizarCantidad, eliminarProducto } = context;
     const [total, setTotal] = useState(0);
 
@@ -30,6 +27,10 @@ export default function Carrito() {
         */
     }, [carrito])//lo vamos a meter en un useEffect para que compruebe el total cada vez que ocurra algún cambio
 
+    if (!context) {
+        // Manejar el caso cuando el contexto es nulo (por ejemplo, aún no está listo)
+        return <div>Cargando...</div>;
+    }
     return(
         <>
             <main className={"contenedor"}>
