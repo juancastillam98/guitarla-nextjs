@@ -30,29 +30,3 @@ async function getGuitarras() {
     }
     return data
 }
-
-//getStaticProps y getServerSideProps ya no se usa en Next 13, lo que se usa es generateStaticParams
-/*
-export async function generateStaticParams(){//getStaticProps es un consulta stática, no va a ser dinámica. Como por ejemplo listar todas las guitaras de strapi
-    const respuesta = await fetch(`${process.env.API_URL}/guitarras?populate=imagen`);
-    const {data: guitarras} = await respuesta.json();//estoy extrayendo data y renombrando por guitarras
-    //console.log(guitarras);
-    return {
-        props: {
-            guitarras
-        }
-    }
-}
-*/
-/*
-export async function getStaticProps(){//getStaticProps es un consulta stática, no va a ser dinámica. Como por ejemplo listar todas las guitaras de strapi
-    const respuesta = await fetch(`${process.env.API_URL}/guitarras?populate=imagen`);
-    const {data: guitarras} = await respuesta.json();//estoy extrayendo data y renombrando por guitarras
-    //console.log(guitarras);
-    return {
-        props: {
-            guitarras
-        }
-    }
-}
-*/

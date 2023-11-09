@@ -1,6 +1,3 @@
-//import {useState} from "react";
-import styles from "@/styles/guitarras.module.css";
-import Image from "next/image";
 
 import {GuitarraInfo} from "../../../components/GuitarraInfo";
 export default async function Producto({params}) {

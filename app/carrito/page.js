@@ -9,8 +9,13 @@ import styles from '@/styles/carrito.module.css'
     description: 'Compra'
 }*/
 export default function Carrito() {
-    const [total, setTotal] = useState(0)
-    const { carrito, actualizarCantidad, eliminarProducto } = useContext(Context);
+    const context = useContext(Context);
+    if (!context) {
+        // Manejar el caso cuando el contexto es nulo (por ejemplo, aún no está listo)
+        return <div>Cargando...</div>;
+    }
+    const { carrito, actualizarCantidad, eliminarProducto } = context;
+    const [total, setTotal] = useState(0);
 
     //vamos a calcular el total mediante un acumulador (reduce)
     useEffect(() =>{
