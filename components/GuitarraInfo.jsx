@@ -7,15 +7,17 @@ import { useContext } from "react";
 import { Context } from "../app/context";
 
 export const GuitarraInfo = ({guitarra}) =>{
-    const { agregarCarrito } = useContext(Context);
 
-    const [cantidad, setCantidad] = useState(0)
-    const {descripcion, nombre,precio, imagen} = guitarra[0].attributes;
+    const [cantidad, setCantidad] = useState(0);
+    const context = useContext(Context);
 
-    if (!context) {
-        // Manejar el caso cuando el contexto es nulo (por ejemplo, aún no está listo)
+    if (!context || !guitarra || !guitarra[0]) {
+        // Manejar el caso cuando el contexto o la guitarra es nula
         return <div>Cargando...</div>;
     }
+
+    const { descripcion, nombre, precio, imagen } = guitarra[0].attributes;
+    const { agregarCarrito } = context;
     const handleSubmit = e => {
         console.log("has clicado en submit")
         e.preventDefault();
